@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Project Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .wrapper {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo img {
+            height: 40px;
+        }
+        .header-logo span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #1e1e1e;
+        }
+        .header-logo span:last-child {
+            color: #007bff;
+        }
+        main {
+            max-width: 60%;
+            align-self: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+        }
+        .iconCircle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #007bff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .iconCircle .noti {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .title-section {
+            text-align: left;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .title-section h1 {
+            color: #0029FF;
+            font-size: 28px;
+            margin: 0;
+        }
+        .headingBottomTextPart {
+            background-color: #E4E7EA;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .title-section h2 {
+            color: black;
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+        .title-section p {
+            font-size: 16px;
+            color: black;
+            margin: 10px auto;
+            width: 100%;
+        }
+        .title-section button {
+            background-color: #0029FF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .content-box {
+            background-color: #fff;
+            box-shadow: 0 0px 10px #333;
+            border-radius: 8px;
+            padding: 20px;
+            width: 45%;
+            position: relative;
+        }
+        .contentBoxHeadingRightPart {
+            position: absolute;
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            border-radius: 50%;
+            top: 5px;
+            right: 5px;
+        }
+        .content-box h2 {
+            font-size: 20px;
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            margin: -20px -20px 10px -20px;
+            text-align: center;
+        }
+        .content-box p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        .thread-section {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .thread-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .thread-section textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+        }
+        .thread-section .add-thread {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .thread-section .add-thread button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .action-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .action-icons img {
+            height: 40px;
+            cursor: pointer;
+        }
+        .bigiconCircle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            background-color: #0029FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="header-icons">
+            <div class="iconCircle"><img src="home.png" alt="Home"></div>
+            <div class="iconCircle"><img src="tools.png" alt="Settings"></div>
+            <div class="iconCircle"><img src="notification.png" alt="Notifications" class="noti"></div>
+            <div class="iconCircle"><img src="profile.png" alt="Profile"></div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main id="main-content">
+            <!-- Dynamic content will be injected here -->
+        </main>
+    </div>
+    <div class="action-icons">
+        <div class="bigiconCircle"><img src="question-mark.png" alt="Question"></div>
+        <div class="bigiconCircle"><img src="meeting.png" alt="Meeting"></div>
+        <div class="bigiconCircle"><img src="schedule.png" alt="Calendar"></div>
+    </div>
+    <script>
+        const data = {
+            "tasks": [
+                {
+                    "task_id": 18882,
+                    "task_title": "Explore the world of management",
+                    "task_description": "As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling and completion. How? Do you want to manage each and every step of your life?",
+                    "status": "notworkyet",
+                    "assets": [
+                        {
+                            "asset_id": 18883,
+                            "asset_title": "Technical Project Management",
+                            "asset_description": "Story of Alignment\r\nScope of Agility\r\nSpecific Accountable \r\nStaggering Approach\r\n\r\n",
+                            "asset_content": "https://www.youtube.com/embed/TiMRwri1xJ8",
+                            "asset_type": "display_asset",
+                            "asset_content_type": "video"
+                        },
+                        {
+                            "asset_id": 18884,
+                            "asset_title": "Threadbuild",
+                            "asset_description": "Watch the video and thread build, and jot out key threads while watching that video.",
+                            "asset_content": "",
+                            "asset_type": "input_asset",
+                            "asset_content_type": "threadbuilder"
+                        },
+                        {
+                            "asset_id": 18885,
+                            "asset_title": "Structure you pointers ",
+                            "asset_description": "Write a 400-500 word article, from your thread. Publish your understanding, and showcase your learning to the entire world.",
+                            "asset_content": "",
+                            "asset_type": "input_asset",
+                            "asset_content_type": "article"
+                        },
+                        {
+                            "asset_id": 18886,
+                            "asset_title": "4SA Method",
+                            "asset_description": "To explore more read more",
+                            "asset_content": "https://dtbaker.net/random-content/bootstrap-4-modal-with-google-map/",
+                            "asset_type": "display_asset",
+                            "asset_content_type": "article"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        function createTaskContent(task) {
+            return `
+                <div class="title-section">
+                    <h1>${task.task_title}</h1>
+                    <button>Submit Task</button>
+                    <div class="headingBottomTextPart">
+                        <h2>${task.task_title}</h2>
+                        <p>${task.task_description}</p>
+                    </div>
+                </div>
+                <div class="content">
+                    ${task.assets.map(asset => createAssetContent(asset)).join('')}
+                </div>
+            `;
+        }
+
+        function createAssetContent(asset) {
+            if (asset.asset_content_type === "video") {
+                return `
+                    <div class="content-box">
+                        <div class="contentBoxHeadingRightPart">i</div>
+                        <h2 class="contenBoxH2Heading">${asset.asset_title}</h2>
+                        <p>${asset.asset_description}</p>
+                        <div class="video-container">
+                            <iframe src="${asset.asset_content}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                `;
+            } else if (asset.asset_content_type === "threadbuilder") {
+                return `
+                    <div class="content-box">
+                        <div class="contentBoxHeadingRightPart">i</div>
+                        <h2>${asset.asset_title}</h2>
+                        <p>${asset.asset_description}</p>
+                        <div class="thread-section">
+                            <h3>Thread A</h3>
+                            <textarea placeholder="Sub thread 1"></textarea>
+                            <textarea placeholder="Sub Interpretation 1"></textarea>
+                            <div class="add-thread">
+                                <button>+ Sub-thread</button>
+                            </div>
+                            <textarea placeholder="Summary for Thread A"></textarea>
+                        </div>
+                    </div>
+                `;
+            } else if (asset.asset_content_type === "article") {
+                return `
+                    <div class="pointer-box content-box">
+                        <div class="contentBoxHeadingRightPart">i</div>
+                        <h2>${asset.asset_title}</h2>
+                        <p>${asset.asset_description}</p>
+                        <input type="text" placeholder="Title" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <textarea placeholder="Content" style="width: 100%; height: 200px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                    </div>
+                `;
+            }
+        }
+
+        const mainContent = document.getElementById('main-content');
+        data.tasks.forEach(task => {
+            mainContent.innerHTML += createTaskContent(task);
+        });
+    </script>
+</body>
+</html>
